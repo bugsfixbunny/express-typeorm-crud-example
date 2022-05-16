@@ -1,8 +1,9 @@
-import {Body, HttpCode, Get, Post, Param, JsonController } from "routing-controllers";
+import {Body, HttpCode, Get, Post, Put, Param, JsonController } from "routing-controllers";
 import vinDecoder from "vin-decode";
 
 import { Car } from "../../models";
 import { CarCreateRequest } from "../../requests/Cars/CarCreateRequest";
+import { CarUpdateRequest } from "../../requests/Cars/CarUpdateRequest";
 
 @JsonController("/cars")
 export class CarController {
@@ -23,5 +24,13 @@ export class CarController {
   @Get("/:id")
   async detail(@Param("id") id: string) {
     return await Car.findOne(id);
+  }
+
+  @Put("/:id")
+  async update(@Param("id") id: string, @Body() body: CarUpdateRequest) {
+    if(!vinDecoder(body.vin)) throw new Error("Vin is not valid.");
+    const car = await Car.findOne(id);
+    Object.assign(car, body);
+    return await car.save();
   }
 }
