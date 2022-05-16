@@ -2595,6 +2595,11 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typedi@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/typedi/-/typedi-0.10.0.tgz#e8f9a5ee100b84addbdfb57fe90d8d9ed2a21dea"
+  integrity sha512-v3UJF8xm68BBj6AF4oQML3ikrfK2c9EmZUyLOfShpJuItAqVBHWP/KtpGinkSsIiP6EZyyb6Z3NXyW9dgS9X1w==
+
 typeorm@^0.2.45:
   version "0.2.45"
   resolved "https://registry.yarnpkg.com/typeorm/-/typeorm-0.2.45.tgz#e5bbb3af822dc4646bad96cfa48cd22fa4687cea"
@@ -2720,6 +2725,11 @@ vary@^1, vary@^1.1.2, vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
+
+vin-decode@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/vin-decode/-/vin-decode-0.2.0.tgz#4a8bf031d233e02a7d82dd9be40a6bb3a37252e6"
+  integrity sha512-flhiDNidm1pY/rVnXXbeacOJ63I7PowK6+O3/4H8uh7aWyIFp4KV+aP7huxoWB36peCi3qCKtx/t+8R4W0WIhA==
 
 which@^2.0.1:
   version "2.0.2"

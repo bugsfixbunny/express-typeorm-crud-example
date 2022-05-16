@@ -9,7 +9,10 @@ import {
   ManyToOne,
   JoinColumn,
   Unique,
+  BeforeInsert,
+  BeforeUpdate
 } from "typeorm";
+import vinDecoder from "vin-decode";
 
 import { Color } from "./Color";
 import { State } from "../Base/State";
@@ -72,4 +75,15 @@ export class Car extends BaseEntity {
 
   @DeleteDateColumn()
     deletedDate: Date;
+
+
+  @BeforeInsert()
+  @BeforeUpdate()
+  async decodeVin() {
+    if (this.vin) {
+      const decoded_vin = await vinDecoder(this.vin).decode();
+      this.year = decoded_vin.year;
+      this.make = decoded_vin.manufacturer;
+    }
+  }
 }
