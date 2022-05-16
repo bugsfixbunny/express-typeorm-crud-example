@@ -1,4 +1,4 @@
-import {Body, HttpCode, Get, Post, JsonController } from "routing-controllers";
+import {Body, HttpCode, Get, Post, Param, JsonController } from "routing-controllers";
 import vinDecoder from "vin-decode";
 
 import { Car } from "../../models";
@@ -18,5 +18,10 @@ export class CarController {
     const car =  new Car();
     Object.assign(car, body);
     return await car.save();
+  }
+
+  @Get("/:id")
+  async detail(@Param("id") id: string) {
+    return await Car.findOne(id);
   }
 }
