@@ -1,4 +1,4 @@
-import {Body, HttpCode, Get, Post, Put, Param, JsonController } from "routing-controllers";
+import {Body, Get, Post, Put, Delete, JsonController, HttpCode, Param } from "routing-controllers";
 import vinDecoder from "vin-decode";
 
 import { Car } from "../../models";
@@ -32,5 +32,11 @@ export class CarController {
     const car = await Car.findOne(id);
     Object.assign(car, body);
     return await car.save();
+  }
+
+  @Delete("/:id")
+  @HttpCode(204)
+  async delete(@Param("id") id: string) {
+    return await Car.delete(id);
   }
 }
